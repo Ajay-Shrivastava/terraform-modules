@@ -18,20 +18,20 @@ variable "resource_group_name" {
     type        = string
 }
 
-variable "DOCKER_REGISTRY_SERVER_URL" {
-    description = "The URL of the Docker registry server"
-    type        = string
-}
-
-variable "DOCKER_REGISTRY_SERVER_USERNAME" {
-    description = "The username of the Docker registry server"
-    type        = string
-}
-
-variable "DOCKER_REGISTRY_SERVER_PASSWORD" {
-    description = "The password of the Docker registry server"
-    type        = string
-}
+#variable "DOCKER_REGISTRY_SERVER_URL" {
+#   description = "The URL of the Docker registry server"
+#    type        = string
+#}
+#
+#variable "DOCKER_REGISTRY_SERVER_USERNAME" {
+#    description = "The username of the Docker registry server"
+#    type        = string
+#}
+#
+#variable "DOCKER_REGISTRY_SERVER_PASSWORD" {
+#    description = "The password of the Docker registry server"
+#    type        = string
+#}
 
 variable "revision_mode" {
     description = "The revision mode of the container app"

@@ -15,6 +15,10 @@ resource "azurerm_container_app" "container_app" {
     container_app_environment_id = azurerm_container_app_environment.container_app_env.id
     revision_mode = var.revision_mode
 
+    identity {
+      type = "SystemAssigned"
+    }
+
     template {
         container {
             name = "example-container"
@@ -22,21 +26,26 @@ resource "azurerm_container_app" "container_app" {
             cpu = "0.25"
             memory = "0.5Gi"
 
-            env {
-                name  = "DOCKER_REGISTRY_SERVER_URL"
-                value = var.DOCKER_REGISTRY_SERVER_URL
-            }
+            # env {
+            #     name  = "DOCKER_REGISTRY_SERVER_URL"
+            #     value = var.DOCKER_REGISTRY_SERVER_URL
+            # }
             
-            env {
-                name  = "DOCKER_REGISTRY_SERVER_USERNAME"
-                value = var.DOCKER_REGISTRY_SERVER_USERNAME
-            }
+            # env {
+            #     name  = "DOCKER_REGISTRY_SERVER_USERNAME"
+            #     value = var.DOCKER_REGISTRY_SERVER_USERNAME
+            # }
 
-            env {
-                name  = "DOCKER_REGISTRY_SERVER_PASSWORD"
-                value = var.DOCKER_REGISTRY_SERVER_PASSWORD
-            }
+            # env {
+            #     name  = "DOCKER_REGISTRY_SERVER_PASSWORD"
+            #     value = var.DOCKER_REGISTRY_SERVER_PASSWORD
+            # }
         }
+    }
+
+    registry {
+      server = var.ContainerRegistry_loginServer
+      identity = "SystemAssigned"
     }
 
     ingress {

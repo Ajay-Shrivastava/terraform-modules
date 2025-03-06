@@ -42,3 +42,8 @@ variable "container_app_name" {
     description = "The name of the container app"
     type        = string 
 }
+
+variable "ContainerRegistry_loginServer" {
+    description = "The login server of the container registry"
+    type        = string
+}

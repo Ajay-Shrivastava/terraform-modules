@@ -16,7 +16,8 @@ resource "azurerm_container_app" "container_app" {
     revision_mode = var.revision_mode
 
     identity {
-      type = "SystemAssigned"
+      type = "UserAssigned"
+      identity_ids = [ var.identityId ]
     }
 
     template {
@@ -45,7 +46,7 @@ resource "azurerm_container_app" "container_app" {
 
     registry {
         server = var.ContainerRegistry_loginServer
-        identity = "SystemAssigned" 
+        identity = "UserAssigned" 
     }
 
     ingress {

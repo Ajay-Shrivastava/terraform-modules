@@ -47,3 +47,8 @@ variable "ContainerRegistry_loginServer" {
     description = "The login server of the container registry"
     type        = string
 }
+
+variable "identityId" {
+    description = "identityId"
+    type        = string
+}

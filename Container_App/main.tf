@@ -44,10 +44,10 @@ resource "azurerm_container_app" "container_app" {
         }
     }
 
-    registry {
-        server = var.ContainerRegistry_loginServer
-        identity = "UserAssigned" 
-    }
+   # registry {
+   #     server = var.ContainerRegistry_loginServer
+   #     identity = "UserAssigned" 
+   # }
 
     ingress {
         external_enabled  = true
